@@ -25,6 +25,50 @@ namespace demm040326
             string login = txtLogin.Text.Trim();
             string pass = txtPass.Text;
             if(string.IsNullOrEmpty(login) || string.IsNullOrEmpty(pass))
+            {
+                MessageBox.Show("заполните поля");
+                return;
+            }
+            using (var db = new Dem040326Context())
+            {
+                var user = db.Users
+                    .FirstOrDefault(l => l.Login == login && l.Password == pass);
+                if (user == null)
+                {
+                    MessageBox.Show("НЕверный логин или пароль");
+                    return;
+                }
+
+                switch (user.IdRole)
+                {
+                    case 1:
+                        MessageBox.Show($"Добро пожаловать, {user.Fio}!");
+                        this.Hide();
+                        admin aa = new admin();
+                        aa.Show();
+                        break;
+
+                    case 2:
+                        MessageBox.Show($"Добро пожаловать, {user.Fio}!");
+                        this.Hide();
+                        Maneger bb = new Maneger();
+                        bb.Show();
+                        break;
+
+                    case 3:
+                        MessageBox.Show($"Добро пожаловать, {user.Fio}!");
+                        this.Hide();
+                        User cc = new User();
+                        cc.Show();
+                        break;
+
+
+                    default:
+                        MessageBox.Show("Нету пользователя");
+                        this.Show();
+                        break;
+                }
+            }
                 
         }
 

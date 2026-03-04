@@ -12,31 +12,20 @@ using System.Windows.Forms;
 
 namespace demm040326
 {
-    public partial class admin : Form
+    public partial class User : Form
     {
         Dem040326Context context;
 
-        public admin()
+        public User()
         {
             InitializeComponent();
-            dataGridView1.DataError += (sender, e) => e.ThrowException = false;
         }
-
-        private void admin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             context = new Dem040326Context();
             context.Tovars.Include(x => x.Category).Include(x => x.Supplier).Include(x => x.Manuf).Load();
+
             context.Database.EnsureCreated();
             bindingSource_tovar.DataSource = context.Tovars.Local.ToBindingList();
             bindingSource_categor.DataSource = context.Categories.Local.ToBindingList();
@@ -51,36 +40,20 @@ namespace demm040326
                 "По категории"
 });
             comboBox1.SelectedIndex = 0;
+
+        }
+
+
+        private void User_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            authorize ff = new authorize();
-            ff.Show();
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string query = textBox1.Text.Trim();
-
-            if (string.IsNullOrEmpty(query))
-            {
-                bindingSource_tovar.DataSource = context.Tovars.Local.ToBindingList();
-                return;
-            }
-
-            var results = context.Tovars.Local
-                .Where(t => t.Name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
-
-            bindingSource_tovar.DataSource = results;
-
+            authorize aa = new authorize();
+            aa.Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,38 +82,27 @@ namespace demm040326
             bindingSource_tovar.DataSource = data.ToList();
         }
 
-        private void button_red_Click(object sender, EventArgs e)
+        private void textBox1_textBox1_TextChanged(object sender, EventArgs e)
         {
-            var form = new changes();
-            form.bindingSource_manuf.DataSource = bindingSource_manuf.DataSource;
-            form.bindingSource_categor.DataSource = bindingSource_categor.DataSource;
-            form.bindingSource_sup.DataSource = bindingSource_sup.DataSource;
-            form.bindingSource_tovar.DataSource = bindingSource_tovar.Current;
-            form.button_save.Click += Button_Save_Click;
-            form.Show();
+
         }
 
-        private void Button_Save_Click(object? sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            bindingSource_tovar.EndEdit();
-            var book = (Tovar)bindingSource_tovar.Current;
-            if (book.ManufId == 0)
+            string query = textBox1.Text.Trim();
+
+            if (string.IsNullOrEmpty(query))
             {
-                MessageBox.Show("Выберите производителя!");
+                bindingSource_tovar.DataSource = context.Tovars.Local.ToBindingList();
                 return;
             }
-            if (book.SupplierId == 0)
-            {
-                MessageBox.Show("Выберите поставщика!");
-                return;
-            }
-            if (book.CategoryId == 0)
-            {
-                MessageBox.Show("Выберите категорию!");
-                return;
-            }
-            context.SaveChanges();
-            dataGridView1.Refresh();
+
+            var results = context.Tovars.Local
+                .Where(t => t.Name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            bindingSource_tovar.DataSource = results;
+
         }
     }
 }

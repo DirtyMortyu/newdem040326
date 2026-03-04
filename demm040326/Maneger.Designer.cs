@@ -1,6 +1,6 @@
 ﻿namespace demm040326
 {
-    partial class admin
+    partial class Maneger
     {
         /// <summary>
         /// Required designer variable.
@@ -30,76 +30,58 @@
         {
             components = new System.ComponentModel.Container();
             button1 = new Button();
-            bindingSource_manuf = new BindingSource(components);
-            bindingSource_sup = new BindingSource(components);
-            bindingSource_categor = new BindingSource(components);
-            bindingSource_tovar = new BindingSource(components);
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
+            idTovDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             articleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             unitDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             sizeorderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewComboBoxColumn();
+            manufIdDataGridViewTextBoxColumn = new DataGridViewComboBoxColumn();
+            bindingSource_manuf = new BindingSource(components);
             supplierIdDataGridViewTextBoxColumn = new DataGridViewComboBoxColumn();
+            bindingSource_sup = new BindingSource(components);
             categoryIdDataGridViewTextBoxColumn = new DataGridViewComboBoxColumn();
+            bindingSource_categor = new BindingSource(components);
             salepercentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             discriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             imageDataGridViewImageColumn = new DataGridViewImageColumn();
-            button_add = new Button();
-            button_red = new Button();
-            button_del = new Button();
+            bindingSource_tovar = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_manuf).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_sup).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_categor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_tovar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(673, 398);
+            button1.Location = new Point(677, 398);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
+            button1.TabIndex = 4;
             button1.Text = "Выйти";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // bindingSource_manuf
-            // 
-            bindingSource_manuf.DataSource = typeof(Models.Manufacturer);
-            // 
-            // bindingSource_sup
-            // 
-            bindingSource_sup.DataSource = typeof(Models.Supplier);
-            // 
-            // bindingSource_categor
-            // 
-            bindingSource_categor.DataSource = typeof(Models.Category);
-            // 
-            // bindingSource_tovar
-            // 
-            bindingSource_tovar.DataSource = typeof(Models.Tovar);
-            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(333, 36);
+            comboBox1.Location = new Point(337, 36);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 8;
+            comboBox1.TabIndex = 12;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(29, 36);
+            textBox1.Location = new Point(33, 36);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(262, 23);
-            textBox1.TabIndex = 7;
+            textBox1.TabIndex = 11;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // dataGridView1
@@ -108,14 +90,21 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { articleDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, unitDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, sizeorderDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, supplierIdDataGridViewTextBoxColumn, categoryIdDataGridViewTextBoxColumn, salepercentDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, discriptionDataGridViewTextBoxColumn, imageDataGridViewImageColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idTovDataGridViewTextBoxColumn, articleDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, unitDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, sizeorderDataGridViewTextBoxColumn, manufIdDataGridViewTextBoxColumn, supplierIdDataGridViewTextBoxColumn, categoryIdDataGridViewTextBoxColumn, salepercentDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, discriptionDataGridViewTextBoxColumn, imageDataGridViewImageColumn });
             dataGridView1.DataSource = bindingSource_tovar;
-            dataGridView1.Location = new Point(29, 74);
+            dataGridView1.Location = new Point(33, 74);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(601, 212);
-            dataGridView1.TabIndex = 6;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            dataGridView1.TabIndex = 10;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // idTovDataGridViewTextBoxColumn
+            // 
+            idTovDataGridViewTextBoxColumn.DataPropertyName = "IdTov";
+            idTovDataGridViewTextBoxColumn.HeaderText = "IdTov";
+            idTovDataGridViewTextBoxColumn.Name = "idTovDataGridViewTextBoxColumn";
+            idTovDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // articleDataGridViewTextBoxColumn
             // 
@@ -152,18 +141,22 @@
             sizeorderDataGridViewTextBoxColumn.Name = "sizeorderDataGridViewTextBoxColumn";
             sizeorderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // manufIdDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "ManufId";
-            dataGridViewTextBoxColumn1.DataSource = bindingSource_manuf;
-            dataGridViewTextBoxColumn1.DisplayMember = "Name";
-            dataGridViewTextBoxColumn1.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            dataGridViewTextBoxColumn1.HeaderText = "ManufId";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.True;
-            dataGridViewTextBoxColumn1.SortMode = DataGridViewColumnSortMode.Automatic;
-            dataGridViewTextBoxColumn1.ValueMember = "Idmanufacturer";
+            manufIdDataGridViewTextBoxColumn.DataPropertyName = "ManufId";
+            manufIdDataGridViewTextBoxColumn.DataSource = bindingSource_manuf;
+            manufIdDataGridViewTextBoxColumn.DisplayMember = "Name";
+            manufIdDataGridViewTextBoxColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            manufIdDataGridViewTextBoxColumn.HeaderText = "ManufId";
+            manufIdDataGridViewTextBoxColumn.Name = "manufIdDataGridViewTextBoxColumn";
+            manufIdDataGridViewTextBoxColumn.ReadOnly = true;
+            manufIdDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.True;
+            manufIdDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Automatic;
+            manufIdDataGridViewTextBoxColumn.ValueMember = "Idmanufacturer";
+            // 
+            // bindingSource_manuf
+            // 
+            bindingSource_manuf.DataSource = typeof(Models.Manufacturer);
             // 
             // supplierIdDataGridViewTextBoxColumn
             // 
@@ -178,6 +171,10 @@
             supplierIdDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Automatic;
             supplierIdDataGridViewTextBoxColumn.ValueMember = "Idsupplier";
             // 
+            // bindingSource_sup
+            // 
+            bindingSource_sup.DataSource = typeof(Models.Supplier);
+            // 
             // categoryIdDataGridViewTextBoxColumn
             // 
             categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
@@ -190,6 +187,10 @@
             categoryIdDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.True;
             categoryIdDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Automatic;
             categoryIdDataGridViewTextBoxColumn.ValueMember = "Idcategory";
+            // 
+            // bindingSource_categor
+            // 
+            bindingSource_categor.DataSource = typeof(Models.Category);
             // 
             // salepercentDataGridViewTextBoxColumn
             // 
@@ -216,59 +217,31 @@
             // 
             imageDataGridViewImageColumn.DataPropertyName = "Image";
             imageDataGridViewImageColumn.HeaderText = "Image";
-            imageDataGridViewImageColumn.Image = Properties.Resources.picture;
             imageDataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
             imageDataGridViewImageColumn.Name = "imageDataGridViewImageColumn";
             imageDataGridViewImageColumn.ReadOnly = true;
             // 
-            // button_add
+            // bindingSource_tovar
             // 
-            button_add.Location = new Point(41, 341);
-            button_add.Name = "button_add";
-            button_add.Size = new Size(135, 40);
-            button_add.TabIndex = 9;
-            button_add.Text = "add";
-            button_add.UseVisualStyleBackColor = true;
+            bindingSource_tovar.DataSource = typeof(Models.Tovar);
             // 
-            // button_red
-            // 
-            button_red.Location = new Point(192, 344);
-            button_red.Name = "button_red";
-            button_red.Size = new Size(135, 40);
-            button_red.TabIndex = 10;
-            button_red.Text = "redaction";
-            button_red.UseVisualStyleBackColor = true;
-            button_red.Click += button_red_Click;
-            // 
-            // button_del
-            // 
-            button_del.Location = new Point(348, 344);
-            button_del.Name = "button_del";
-            button_del.Size = new Size(135, 40);
-            button_del.TabIndex = 11;
-            button_del.Text = "Delete";
-            button_del.UseVisualStyleBackColor = true;
-            // 
-            // admin
+            // Maneger
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button_del);
-            Controls.Add(button_red);
-            Controls.Add(button_add);
             Controls.Add(comboBox1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
-            Name = "admin";
-            Text = "admin";
-            Load += admin_Load;
+            Name = "Maneger";
+            Text = "Maneger";
+            Load += Maneger_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_manuf).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_sup).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_categor).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource_tovar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -276,27 +249,25 @@
         #endregion
 
         private Button button1;
-        public BindingSource bindingSource_manuf;
-        public BindingSource bindingSource_sup;
-        public BindingSource bindingSource_categor;
-        public BindingSource bindingSource_tovar;
         private ComboBox comboBox1;
         private TextBox textBox1;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn idTovDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn articleDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sizeorderDataGridViewTextBoxColumn;
-        private DataGridViewComboBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewComboBoxColumn manufIdDataGridViewTextBoxColumn;
+        public BindingSource bindingSource_manuf;
         private DataGridViewComboBoxColumn supplierIdDataGridViewTextBoxColumn;
+        public BindingSource bindingSource_sup;
         private DataGridViewComboBoxColumn categoryIdDataGridViewTextBoxColumn;
+        public BindingSource bindingSource_categor;
         private DataGridViewTextBoxColumn salepercentDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn discriptionDataGridViewTextBoxColumn;
         private DataGridViewImageColumn imageDataGridViewImageColumn;
-        private Button button_add;
-        private Button button_red;
-        private Button button_del;
+        public BindingSource bindingSource_tovar;
     }
 }

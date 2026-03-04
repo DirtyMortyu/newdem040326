@@ -42,14 +42,14 @@
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(167, 97);
+            txtLogin.Location = new Point(90, 65);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(100, 23);
             txtLogin.TabIndex = 0;
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(167, 149);
+            txtPass.Location = new Point(90, 117);
             txtPass.Name = "txtPass";
             txtPass.Size = new Size(100, 23);
             txtPass.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(180, 206);
+            btnLogin.Location = new Point(103, 174);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(75, 23);
             btnLogin.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(276, 313);
             Controls.Add(btnLogin);
             Controls.Add(txtPass);
             Controls.Add(txtLogin);
